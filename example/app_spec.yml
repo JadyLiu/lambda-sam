@@ -49,3 +49,14 @@ Resources:
             Method: delete
   Table:
     Type: AWS::Serverless::SimpleTable
+
+Outputs:
+  ApiUrl: 
+    Description: Information about api gateway endpoint
+    Value: !Join
+      - ""
+      - - https://
+        - !Ref ServerlessRestApi
+        - ".execute-api."
+        - !Ref "AWS::Region"
+        - ".amazonaws.com/Prod"
